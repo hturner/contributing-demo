@@ -14,17 +14,19 @@ knitr:
 ## Contributing to R
 
 <!-- ::: {.notes} -->
+
 <!-- Welcome to this quick demo of how to make a contribution to base R. -->
+
 <!-- ::: -->
 
 R is maintained by the R Core Team
 
 Members of the R Community can contribute in various ways:
 
-* Analysing and fixing bugs
-* Translating R's messages, warnings and errors
-* Testing pre-release versions of R
-* Developing new features
+- Analysing and fixing bugs
+- Translating R's messages, warnings and errors
+- Testing pre-release versions of R
+- Developing new features
 
 ::: {.fragment}
 In this demo we'll focus on bug fixing!
@@ -34,12 +36,13 @@ In this demo we'll focus on bug fixing!
 R is maintained by the R Core Team
 
 Members of the R Community can contribute in various ways, for example
-* Analysing and fixing bugs
-* Translating R's messages, warnings and errors
-* Testing pre-release versions of R, or
-* Developing new features
 
-->
+- Analysing and fixing bugs
+- Translating R's messages, warnings and errors
+- Testing pre-release versions of R, or
+- Developing new features
+
+\->
 
 In this demo we'll focus on bug fixing!
 :::
@@ -50,7 +53,7 @@ In this demo we'll focus on bug fixing!
 First, we need to find a good bug to work on.
 :::
 
-## Bugzilla, <https://bugs.r-project.org>
+## Bugzilla, [https://bugs.r-project.org](https://bugs.r-project.org)
 
 ::: {.r-stack}
 ::: {.fragment .fade-out fragment-index=0}
@@ -62,10 +65,9 @@ First, we need to find a good bug to work on.
 :::
 
 ::: {.notes}
-Bugs in R are tracked in R's Bugzilla, which can be found at bugs.r-project.org. 
+Bugs in R are tracked in R's Bugzilla, which can be found at bugs.r-project.org.
 We can browse the bugs by clicking on the browse button in the top menu.
 :::
-
 
 <!-- https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/23-titleless-slides/ -->
 
@@ -123,7 +125,7 @@ Let's take a look at the last one here: "Clarification needed in ?c", which refe
 ![](media/bug_report_metadata.png){fig-alt=""}
 
 ::: {.notes}
-The top of the bug report shows some basic metadata. 
+The top of the bug report shows some basic metadata.
 :::
 
 ## {#comments data-menu-title="Bugzilla - Comments"}
@@ -136,7 +138,6 @@ If we scroll down, we'll see a description of the bug by the reporter, in this c
 Below that, there may be one or more comments from R core developers or other contributors.
 :::
 
-
 ## What to look for
 
 ::: {.fragment}
@@ -144,51 +145,53 @@ Good: a bug report where the next step is clear.
 :::
 
 ::: {.incremental}
+
 - A minimimal reproducible example
-- Checking in R-devel 
+- Checking in R-devel
 - A diagnosis
 - A fix
-:::
+  :::
 
 ::: {.fragment}
 Even better: an [R Core](https://www.r-project.org/contributors.html) member supports the next step in a comment.
 :::
 
 ::: {.notes}
-A good first issue is one where the next step is clear. 
+A good first issue is one where the next step is clear.
 
 The bug report might need a minimal reproducible example to use as a test case.
 
 Or the bug might need checking in the development version of R,
-to see if it is still a bug or has already been fixed. 
+to see if it is still a bug or has already been fixed.
 
 Alternatively, the bug might need debugging to diagnose the root cause.
 
-Finally, you might contribute to the discussion of how to fix the bug, 
+Finally, you might contribute to the discussion of how to fix the bug,
 or even propose a patch.
 
-It is even better if an R Core member has shown support for one of these things in 
+It is even better if an R Core member has shown support for one of these things in
 a comment, so you know the next step for sure.
 :::
 
 ## What to avoid
 
 ::: {.incremental}
+
 - Too new
 - Too old
 - Commenters disagree on how to fix
 - Someone else is clearly working on it
 - Clearly requires specific expertise you lack
-:::
+  :::
 
 ::: {.notes}
-Bug reports that are too new are best avoided, as they are often taken up quickly by 
+Bug reports that are too new are best avoided, as they are often taken up quickly by
 experienced contributors.
 
-On the other hand, bug reports that are very old often lack consensus on the 
+On the other hand, bug reports that are very old often lack consensus on the
 next step or require a decision to be made by R Core.
 
-You should avoid bugs where there is disagreement on the next step or 
+You should avoid bugs where there is disagreement on the next step or
 someone else is clearly working on it.
 
 Finally avoid bugs that are clearly outside your areas of expertise.
@@ -203,13 +206,13 @@ Get help finding a good first issue:
 - [Bug BBQ](https://contributor.r-project.org/events/bug-bbq/)
 
 ::: {.notes}
-It can take a while to find an issue to work on, but there are some shortcuts 
+It can take a while to find an issue to work on, but there are some shortcuts
 available.
 
-You can attend an R Contributor Office Hour or look on the #work-out-loud channel of the 
+You can attend an R Contributor Office Hour or look on the #work-out-loud channel of the
 R Contributor Slack where good first issues are sometimes shared.
 
-Or you can attend special events like the Bug BBQ, where good first issues are prepared 
+Or you can attend special events like the Bug BBQ, where good first issues are prepared
 in advance.
 :::
 
@@ -222,15 +225,17 @@ One of the hardest tasks is analysing bugs to get to the root of the issue.
 ## Bug 17863
 
 See report on Bugzilla:  
-<https://bugs.r-project.org/show_bug.cgi?id=17863>
+[https://bugs.r-project.org/show\_bug.cgi?id=17863](https://bugs.r-project.org/show_bug.cgi?id=17863)
 
 <br>
 
 ::: {.fragment}
 A 1-factor factor analysis:
+
 ```{r}
 test <- factanal(mtcars[, 1:4], factors = 1)
 ```
+
 :::
 
 ::: {.notes}
@@ -247,98 +252,114 @@ The bug reporter provided some test code for a 1-factor factor analysis.
 ::: {.center}
 Good
 :::
+
 ```{r}
 print(test)
 ```
+
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.fragment}
 Bad
+
 ```{r}
 print(test, sort = TRUE)
 ```
+
 :::
 :::
 ::::
 
 ::: {.notes}
-When the print function is called on the resulting test object, various 
-elements of the result are printed as expected, including the call, 
+When the print function is called on the resulting test object, various
+elements of the result are printed as expected, including the call,
 the uniquenesses and the loadings.
 
 Before R 4.3.0, when the print function was called with the argument sort = TRUE,
-we get an unexpected result. The loadings are printed as a vector rather than a 
+we get an unexpected result. The loadings are printed as a vector rather than a
 matrix, so we lose the row and column labels.
 :::
 
 ## Finding the print method (1)
 
 ::: {.fragment}
+
 ```{r}
 class(test)
 ```
+
 :::
 
 ::: {.fragment}
+
 ```{r}
 getAnywhere(print.factanal)
 ```
+
 :::
 
 ::: {.notes}
-The print function is an S3 generic, so we need to find out which S3 method is 
+The print function is an S3 generic, so we need to find out which S3 method is
 being used here.
 
 First we use the class function to find out that test is an object of class factanal.
 
 If an S3 print method exists for this class, it will be called print.factanal.
 
-We use the getAnwhere function to search for this method. A method is found 
+We use the getAnwhere function to search for this method. A method is found
 in the stats package and printed out.
 
-In the body of the function we can see the cat and print calls that print 
-different elements of the factanal object. 
+In the body of the function we can see the cat and print calls that print
+different elements of the factanal object.
 
-In the 4th line of the function, print is called on the loadings element 
+In the 4th line of the function, print is called on the loadings element
 to print the loadings.
 :::
 
 ## Finding the print method (2)
 
 ::: {.fragment}
+
 ```{r}
 class(test$loadings)
 ```
+
 :::
 ::: {.fragment}
+
 ```{r}
 getAnywhere(print.loadings)
 ```
+
 :::
 
 ::: {.notes}
 So now we repeat this exercise on the loadings element of our test object.
 
-We find out that the loadings element is an object of class loadings and 
+We find out that the loadings element is an object of class loadings and
 there is a print.loadings methods in the stats package.
 :::
 
 ## Debugging print.loadings
 
 ::: {.fragment}
+
 ```{r}
 #| error: true
 debugonce(stats::print.loadings)
 ```
+
 :::
 ::: {.fragment}
+
 ```{r}
 #| eval: FALSE
 debugonce(stats:::print.loadings)
 print(test, sort = TRUE)
 ```
+
 ```
 Call:
 factanal(x = mtcars[, 1:4], factors = 1)
@@ -375,43 +396,51 @@ debug: {
 }
 Browse[2]> 
 ```
+
 :::
 
 ::: {.notes}
-If we try running debugonce on stats::print.loadings, we get an error telling us 
+If we try running debugonce on stats::print.loadings, we get an error telling us
 that print.loadings is not exported from the stats package.
 
-We can access internal functions by using three colons instead, so debugonce 
+We can access internal functions by using three colons instead, so debugonce
 runs without error.
 
-Now when we run print test with sort = TRUE, the call and uniquenesses are 
+Now when we run print test with sort = TRUE, the call and uniquenesses are
 printed, but when print.loadings is called we enter a debugging environment.
 
-The body of this function is printed out to the console ... [scroll down] ... 
+The body of this function is printed out to the console ... [scroll down] ...
 and at the end we find a Browse prompt.
 :::
 
 ## Press Enter to step through line by line
 
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: Lambda <- unclass(x)
 ```
+
 :::
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: p <- nrow(Lambda)
 ```
+
 :::
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: factors <- ncol(Lambda)
 ```
+
 :::
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: if (sort) {
@@ -421,56 +450,68 @@ debug: if (sort) {
     Lambda <- Lambda[order(mx, 1L:p), ]
 }
 ```
+
 :::
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: mx <- max.col(abs(Lambda))
 ```
+
 :::
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: ind <- cbind(1L:p, mx)
 ```
+
 :::
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: mx[abs(Lambda[ind]) < 0.5] <- factors + 1
 ```
+
 :::
 ::: {.fragment}
+
 ```
 Browse[2]> 
 debug: Lambda <- Lambda[order(mx, 1L:p), ]
 ```
+
 :::
 
 ::: {.notes}
-We can press the enter or return key to step through the code in the 
+We can press the enter or return key to step through the code in the
 print.loadings function, running one line at a time. (1,2,3)
 
 Here we get to a conditional block that is run if sort = TRUE, as in our test case.
 When we press return, we enter this block and can continue stepping through line by line. (1, 2, 3, 4)
 
 At the end of this block, there is a line where an object Lambda is overwritten
-by an ordered version of itself. 
+by an ordered version of itself.
 
-Before running this line, we can print Lambda with and without the ordering. 
+Before running this line, we can print Lambda with and without the ordering.
 :::
 
 ## Print objects
 
 ::: {.fragment}
+
 ```
 Browse[2]> Lambda[order(mx, 1L:p), ]
        mpg        cyl       disp         hp 
 -0.8947285  0.9603623  0.9381177  0.8594404 
 ```
+
 :::
 
 ::: {.fragment}
+
 ```
 Browse[2]> Lambda
         Factor1
@@ -479,9 +520,11 @@ cyl   0.9603623
 disp  0.9381177
 hp    0.8594404
 ```
+
 :::
 
 ::: {.fragment}
+
 ```
 Browse[2]> Lambda[order(mx, 1L:p), , drop = FALSE]
         Factor1
@@ -491,6 +534,7 @@ disp  0.9381177
 hp    0.8594404
 Browse[2]> 
 ```
+
 :::
 
 ::: {.notes}
@@ -498,15 +542,14 @@ Here it is with the ordering...
 
 ... and here it is without.
 
-Clearly the ordering is changing the structure of the object - we have found 
+Clearly the ordering is changing the structure of the object - we have found
 the root cause of the issue!
 
 In this case, there is a simple fix.
 
-Experienced R programmers may know that when the rows of a one-column matrix are 
+Experienced R programmers may know that when the rows of a one-column matrix are
 indexed, a vector is returned, unless we set drop = FALSE, as here.
 :::
-
 
 ## Modify function
 
@@ -541,7 +584,7 @@ print.loadings <- function (x, digits = 3L, cutoff = 0.1, sort = FALSE, ...)
 ```
 
 ::: {.notes}
-We can check this fix, by creating our own version of print.loadings with 
+We can check this fix, by creating our own version of print.loadings with
 the fix applied.
 :::
 
@@ -552,7 +595,7 @@ print.loadings(test$loadings, sort = TRUE)
 ```
 
 ::: {.notes}
-After sourcing our version of print.loadings we can test it on the loadings 
+After sourcing our version of print.loadings we can test it on the loadings
 element of our test object.
 
 The fix works!
@@ -571,7 +614,7 @@ Once we have a fix, how can propose it to R Core?
 (Requires an [account](https://contributor.r-project.org/rdevguide/BugTrack.html#RCorePkgBug))
 
 ::: {.notes}
-If the fix is simple to describe, we can propose it by adding a comment on 
+If the fix is simple to describe, we can propose it by adding a comment on
 Bugzilla, as I have done here.
 
 To add comments, you need a Bugzilla account, see the link for more details.
@@ -580,7 +623,7 @@ To add comments, you need a Bugzilla account, see the link for more details.
 ## Create a patch via GitHub
 
 Alternatively, create a patch using the r-svn mirror of the R sources:
-<https://github.com/r-devel/r-svn>
+[https://github.com/r-devel/r-svn](https://github.com/r-devel/r-svn)
 
 ![](media/r-svn.png){fig-alt=""}
 
@@ -606,7 +649,7 @@ This will create a fork of the r-svn repo on your GitHub account.
 ::: {.notes}
 Find the source file containing the code you want to change.
 
-Click the edit button: this will create a fork of the r-svn repo on your 
+Click the edit button: this will create a fork of the r-svn repo on your
 GitHub account and open a window where you can edit the file.
 :::
 
@@ -626,12 +669,11 @@ Committing changes will create a branch on your fork
 :::
 
 ::: {.notes}
-Make the changes in the source file. 
+Make the changes in the source file.
 
-When you are ready, click the `Commit changes...` button to commit these changes 
+When you are ready, click the `Commit changes...` button to commit these changes
 to your fork - a new branch will be created with your changes.
 :::
-
 
 ## Open a PR (1)
 
@@ -645,7 +687,7 @@ to your fork - a new branch will be created with your changes.
 :::
 
 ::: {.notes}
-Now you will see a `Compare & pull request` button on your fork. 
+Now you will see a `Compare & pull request` button on your fork.
 
 Click this to open a pull request back to the original r-svn repo.
 :::
@@ -664,7 +706,7 @@ Click this to open a pull request back to the original r-svn repo.
 ::: {.notes}
 Enter a description of your changes - here I have written "Minor change for demo".
 
-If you want, you can add more information in the comment box for people you 
+If you want, you can add more information in the comment box for people you
 might ask to review your pull request.
 :::
 
@@ -679,7 +721,7 @@ might ask to review your pull request.
 :::
 
 ::: {.notes}
-Once you have created a pull request, you will be taken back to the original 
+Once you have created a pull request, you will be taken back to the original
 repo and you'll see some automated checks starting to run.
 
 These build R on different platforms and run its test suite.
@@ -690,7 +732,7 @@ If the checks pass, everything in amber here will turn green.
 
 ## Create a patch
 
-Add `.diff` to the URL for your PR, e.g. <https://github.com/r-devel/r-svn/pull/124.diff>
+Add `.diff` to the URL for your PR, e.g. [https://github.com/r-devel/r-svn/pull/124.diff](https://github.com/r-devel/r-svn/pull/124.diff)
 
 :::{.fragment}
 ![](media/pr_diff.png){fig-alt=""}
@@ -705,33 +747,39 @@ This patch can be attached to the Bugzilla report, with a comment.
 ::: {.notes}
 If everything looks good, add `.diff` to the URL for your Pull Request and enter the modified URL in your browser. This will generate a diff of your changes.
 
-Right-click on the browser window to save this as a `.diff` file. 
+Right-click on the browser window to save this as a `.diff` file.
 
-You can then attach the diff file to the bug 
+You can then attach the diff file to the bug
 report on Bugzilla, with a comment explaining your proposed fix.
 :::
 
 ## Where next?
 
 ::: {.incremental}
-- [R Development Guide](https://contributor.r-project.org/rdevguide) 
+
+- [R Development Guide](https://contributor.r-project.org/rdevguide)
 - [R Contributor Events](https://contributor.r-project.org/events)
 - [R Contributor Slack](https://contributor.r-project.org/slack)
-:::
+  :::
 
 ::: {.notes}
 This quick demo has run through the basics of contributing to fixing bugs in R.
 
-For more information on this and other ways to contribute, 
- - refer to the online R Development Guide
- - attend R Contributor Events
- - or join the Slack group for peer support.
+For more information on this and other ways to contribute,
+
+- refer to the online R Development Guide
+- attend R Contributor Events
+- or join the Slack group for peer support.
+  :::
+
+# 
+
+:::{.r-stack}
+![](media/reshot-icon-rocket-ZQTKM9NG32.svg){fig-alt="Cartoon of a rocket launching" width="100%"}
 :::
 
-## {#end data-menu-title="Let's go!"}
+::: {.notes}
+We hope this has inspired you to start contributing to R!
+:::
 
-<center>
-```{r, fig.alt = "Cartoon of a rocket launching", out.width = "40%", echo = FALSE}
-knitr::include_graphics("media/reshot-icon-rocket-ZQTKM9NG32.svg")
-```
-</center>
+
