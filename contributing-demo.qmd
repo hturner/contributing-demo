@@ -1,6 +1,6 @@
 ---
 title: How to Make a Contribution to Base R
-subtitle: '<img src="media/reshot-icon-code-JY2WVRU489.svg" alt="Cartoon of a code script with a bug (insect) under a magnifying glass" width="300">'
+subtitle: '<img src="media/reshot-icon-code-JY2WVRU489.svg" alt="Cartoon of a code script with a bug (insect) under a magnifying glass" width="200">'
 author: Heather Turner and Ella Kaye
 date: "14 April 2022"
 date-format: long
@@ -11,11 +11,11 @@ knitr:
     echo: true
 ---
 
-::: {.notes}
-Welcome to this quick demo of how to make a contribution to base R.
-:::
+## Contributing to R
 
-# Contributing to R
+<!-- ::: {.notes} -->
+<!-- Welcome to this quick demo of how to make a contribution to base R. -->
+<!-- ::: -->
 
 R is maintained by the R Core Team
 
@@ -48,14 +48,14 @@ In this demo we'll focus on bug fixing!
 First, we need to find a good bug to work on.
 :::
 
-## Bugzilla (bugs.r-project.org)
+## Bugzilla, <https://bugs.r-project.org>
 
 ::: {.r-stack}
 ::: {.fragment .fade-out fragment-index=0}
-![](media/bugzilla_main_page.png){fig-alt="Screenshot of R's Bugzilla showing an HTML table with the results of a search for open bugs, in order of the most recent change, with the newest at the top."}
+![](media/bugzilla_main_page.png){fig-alt="Screenshot of R's Bugzilla showing an HTML table with the results of a search for open bugs, in order of the most recent change, with the newest at the top." width="80%"}
 :::
 ::: {.fragment .current-visible fragment-index=0}
-![](media/bugzilla_menu_browse.png){fig-alt=""}
+![](media/bugzilla_menu_browse.png){fig-alt="" width="80%"}
 :::
 :::
 
@@ -127,6 +127,7 @@ The top of the bug report shows some basic metadata.
 ## {#comments data-menu-title="Bugzilla - Comments"}
 
 ![](media/bug_report_and_comment1.png){fig-alt=""}
+
 ::: {.notes}
 If we scroll down, we'll see a description of the bug by the reporter, in this case Michael Chirico.
 
@@ -216,14 +217,14 @@ One of the hardest tasks is analysing bugs to get to the root of the issue.
 
 ## Bug 17863
 
-(https://bugs.r-project.org/show_bug.cgi?id=17863)
+<https://bugs.r-project.org/show_bug.cgi?id=17863>
 
 A 1-factor factor analysis:
 ```{r}
 test <- factanal(mtcars[, 1:4], factors = 1)
 ```
 
-<br>
+## Bug in the print method
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -565,7 +566,7 @@ To add comments, you need a Buzilla account, see the link for more details.
 ## Create a patch via GitHub
 
 Alternatively, create a patch using the r-svn mirror of the R sources:
-https://github.com/r-devel/r-svn
+<https://github.com/r-devel/r-svn>
 
 ![](media/bug_analysis.png){fig-alt=""}
 
@@ -634,6 +635,7 @@ Click this to open a pull request back to the original r-svn repo.
 ## Open a PR (2)
 
 ![](media/pr.png){fig-alt=""}
+
 ::: {.notes}
 Enter a description of your changes - here I have written "Minor change for demo".
 
@@ -644,6 +646,7 @@ might ask to review your pull request.
 ## Open a PR (3)
 
 ![](media/pr_checks.png){fig-alt=""}
+
 ::: {.notes}
 Once you have created a pull request, you will be taken back to the original 
 repo and you'll see some automated checks starting to run.
@@ -655,9 +658,10 @@ These will go green if the checks pass.
 
 ## Create a patch
 
-Add `.diff` to the URL for your PR, e.g. https://patch-diff.githubusercontent.com/raw/r-devel/r-svn/pull/124.diff
+Add `.diff` to the URL for your PR, e.g. <https://patch-diff.githubusercontent.com/raw/r-devel/r-svn/pull/124.diff>
 
 ![](media/pr_diff.png){fig-alt=""}
+
 Right-click to save `.diff` file.
 
 This patch can be attached to the Bugzilla report, with a comment.
@@ -674,7 +678,7 @@ report on Bugzilla, with a comment explaining your proposed fix.
 
 - [R Development Guide](https://contributor.r-project.org/rdevguide) 
 - [R Contributor Events](https://contributor.r-project.org/events)
-- [R Contributor Slack]((https://contributor.r-project.org/slack)
+- [R Contributor Slack](https://contributor.r-project.org/slack)
 
 ::: {.notes}
 This quick demo has run through the basics of contributing to fixing bugs in R.
