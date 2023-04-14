@@ -735,3 +735,17 @@ For more information on this and other ways to contribute,
 knitr::include_graphics("media/reshot-icon-rocket-ZQTKM9NG32.svg")
 ```
 </center>
+
+::: {.notes}
+We hope this has inspired you to start contributing to R
+:::
+
+## Links
+ - R Core: <https://www.r-project.org/contributors.html>
+ - R Contributor Office Hours: <https://contributor.r-project.org/events/office-hours/>
+ - R Contributor Slack: <https://contributor.r-project.org/slack>
+ - Bug BBQ: <https://contributor.r-project.org/events/bug-bbq/>
+ - How to get a Bugzilla account: <https://contributor.r-project.org/rdevguide/BugTrack.html#RCorePkgBug>
+ - R Development Guide: <https://contributor.r-project.org/rdevguide/>
+ 
+ - Slides for this demo: <https://hturner.github.io/contributing-demo>
