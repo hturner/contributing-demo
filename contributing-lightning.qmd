@@ -1,0 +1,130 @@
+---
+format: 
+  warwickpres-revealjs:
+    width: 1600
+    height: 900
+    slide-number: false
+    menu:
+      openButton: false
+---
+
+## How to Make a Contribution to Base R {.center .center-h}
+
+Demo: <https://youtu.be/VOlF8fPf9v8>
+
+:::{.columns}
+
+::: {.column width="33%"}
+:::{.callout-caution}
+## Finding a bug
+![](media/bugzilla_main_page.png){fig-alt="Screenshot of R's Bugzilla showing an HTML table with the results of a search for open bugs, in order of the most recent change, with the newest at the top." height="299px"}
+:::
+:::
+
+::: {.column width="33%"}
+:::{.callout-warning}
+## Debugging
+```r
+debugonce(stats:::print.loadings)
+print(test, sort = TRUE)
+```
+```
+Call:
+factanal(x = mtcars[, 1:4], factors = 1)
+
+Uniquenesses:
+  mpg   cyl  disp    hp 
+0.199 0.078 0.120 0.261 
+debugging in: print.loadings(x$loadings, digits = digits, ...)
+debug: {
+    Lambda <- unclass(x)
+    p <- nrow(Lambda)
+    factors <- ncol(Lambda)
+    if (sort) {
+        mx <- max.col(abs(Lambda))
+        ind <- cbind(1L:p, mx)
+        mx[abs(Lambda[ind]) < 0.5] <- factors + 1
+        Lambda <- Lambda[order(mx, 1L:p), ]
+    }
+    cat("\nLoadings:\n")
+    fx <- setNames(format(round(Lambda, digits)), NULL)
+```
+:::
+:::
+
+::: {.column width="33%"}
+:::{.callout-tip}
+## Proposing a fix
+![](media/r-svn_trimmed.png){fig-alt="" height="299px"}
+:::
+:::
+
+:::
+
+:::{.columns style="display: flex"}
+
+::: {.column width="10%"}
+![](media/epsrc_logo.png){width="60%"}
+:::
+
+
+::: {.column width="80%" style="display: flex; justify-content: center; align-items: center;"}
+![](media/fosstodon.png){fig-alt="" width="7.5%" style="vertical-align:middle"}
+[@HeathrTurnr](https://fosstodon.org/@HeathrTurnr) [@ellakaye](https://fosstodon.org/@ellakaye)
+:::
+
+::: {.column width="10%"}
+![](media/Rlogo.png){width="60%"}
+:::
+
+
+:::
+
+```{=html}
+<!-- needs to be last chunk of presentation otherwise creates an extra slide -->
+<!-- tint80 for border, tint20 for title -->
+<!-- this should hopefully no longer be necessary in Quarto 1.4 -->
+<!-- https://github.com/quarto-dev/quarto-cli/issues/5038 -->
+<style type="text/css">
+div.callout-note {
+  border-left-color: #336695 !important;
+}
+
+div.callout-note.callout-style-default .callout-title {
+  background-color: #CCD9E4 !important;
+}
+
+div.callout-caution {
+  border-left-color: #AE4240 !important;
+}
+
+div.callout-caution.callout-style-default .callout-title {
+  background-color: #ebd0cf !important;
+}
+
+div.callout-tip {
+  border-left-color: #618157 !important;
+}
+
+div.callout-tip.callout-style-default .callout-title {
+  background-color: #d8e0d5 !important;
+}
+
+div.callout-important {
+  border-left-color: #775781 !important;
+}
+
+div.callout-important.callout-style-default .callout-title {
+  background-color: #ddd5e0 !important;
+}
+
+div.callout-warning {
+  border-left-color: #956133 !important;
+}
+
+div.callout-warning.callout-style-default .callout-title {
+  background-color: #e4d8cc !important;
+}
+</style>
+
+```
