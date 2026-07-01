@@ -568,7 +568,7 @@ Once we have a fix, how can propose it to R Core?
 
 ![](media/bug_analysis.png){fig-alt=""}
 
-(Requires an [account](https://contributor.r-project.org/rdevguide/BugTrack.html#RCorePkgBug))
+(Requires an [account](https://contributor.r-project.org/rdevguide/chapters/issue_tracking.html#bugzilla-account))
 
 ::: {.notes}
 If the fix is simple to describe, we can propose it by adding a comment on 
